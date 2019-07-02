@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UiButton } from '../_models/uiButton';
-import {PythonService} from '../_services/python.service';
+import { PythonService } from '../_services/python.service';
 
 @Component({
   selector: 'app-controls',
@@ -15,7 +15,7 @@ export class ControlsComponent implements OnInit {
   public buttonBL: UiButton;
   public buttonOn: UiButton;
 
-  constructor(private pythonService: PythonService){}
+  constructor(private pythonService: PythonService) {}
   ngOnInit() {
     this.buttonI = new UiButton('Button I');
     this.buttonII = new UiButton('Button II');
@@ -34,11 +34,8 @@ export class ControlsComponent implements OnInit {
     this.buttonBL.onOff = false;
 
     uiButton.onOff = uiButton.onOff !== true;
-    const msg = 'Push: '+uiButton.name;
+    const msg = 'Push: ' + uiButton.name;
     this.pythonService.sendMessage(msg);
     console.log(msg);
-
   }
-
-
 }

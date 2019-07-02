@@ -12,7 +12,7 @@ import {ControlsComponent} from './controls/controls.component';
 import {UiButton} from './_models/uiButton';
 import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 
-const config: SocketIoConfig = { url: 'http://localhost:8988', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 
 @NgModule({
