@@ -1,18 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBluetoothB } from '@fortawesome/free-brands-svg-icons/faBluetoothB';
-import { MatSliderModule, MatSlideToggleModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ControllsComponent } from './controlls/controlls.component';
-import { UiButton} from './_models/uiButton';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faBluetoothB} from '@fortawesome/free-brands-svg-icons/faBluetoothB';
+import {MatSliderModule, MatSlideToggleModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ControlsComponent} from './controls/controls.component';
+import {UiButton} from './_models/uiButton';
+import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:8988', options: {} };
+
 
 @NgModule({
-  declarations: [AppComponent, ControllsComponent],
+  declarations: [AppComponent, ControlsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +24,7 @@ import { UiButton} from './_models/uiButton';
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [UiButton],
   bootstrap: [AppComponent],
