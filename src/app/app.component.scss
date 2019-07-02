@@ -1,0 +1,103 @@
+
+.radio-frame {
+  border: 20px #DAB86C solid;
+  margin: auto;
+  width: 650px;
+  height: 400px;
+}
+
+.radio-front {
+  background-color: #494949;
+  padding: 50px;
+  height: 300px;
+}
+
+.radio-front-label {
+  margin-top: 30px;
+  margin-left: 10px;
+  width: 250px;
+}
+
+.volume-knob-placeholder {
+  background-image: radial-gradient(circle, #c6c6c6, silver, #a8a8a8, #ebebeb);
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  border: 5px solid #2a2a2a;
+  margin-right: 90px;
+  text-align: center;
+  padding: 10px;
+}
+
+.radio-front-top {
+  display: block;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.radio-front-bottom {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.status-group {
+  text-align: center;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+
+.button-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
+  border: 5px solid gray;
+  background-image: radial-gradient(circle, gray, silver);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.volume-knob-placeholder:hover,
+.button-placeholder:hover {
+  background-image: radial-gradient(circle, #515151, silver);
+  border: 5px solid #3e3e3e;
+  cursor: grab;
+
+}
+
+.button-placeholder:active {
+  background-image: radial-gradient(circle, #515151, silver);
+  border: 5px solid #0093dc;
+}
+
+.button-placeholder.active {
+  border: 5px solid #0093dc;
+  box-shadow: -1px 0px 20px 3px rgba(0, 147, 220, 0.8);
+}
+
+.button-label {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 40px;
+}
+
+.status-led {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
