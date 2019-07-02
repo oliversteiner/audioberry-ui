@@ -12,6 +12,10 @@ export class PythonService {
     this.socket.emit('message', msg);
   }
 
+  play(station: string) {
+    this.socket.emit('play-station', station);
+  }
+
   getMessage() {
     return this.socket.fromEvent('message').pipe(map(data => data));
   }
