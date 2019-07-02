@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBluetoothB } from '@fortawesome/free-brands-svg-icons/faBluetoothB';
-import {MatSliderModule, MatSlideToggleModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatSliderModule, MatSlideToggleModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ControllsComponent } from './controlls/controlls.component';
+import { UiButton} from './_models/uiButton';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ControllsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,7 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatSliderModule,
   ],
-  providers: [],
+  providers: [UiButton],
   bootstrap: [AppComponent],
 })
 export class AppModule {
