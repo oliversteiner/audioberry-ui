@@ -12,7 +12,7 @@ import {ControlsComponent} from './controls/controls.component';
 import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 
 // const socketURL = 'http://localhost:8882';
-const socketURL = 'http://10.0.35:8882';
+const socketURL = 'http://10.0.1.35:8882';
 
 const config: SocketIoConfig = {url: socketURL, options: {}};
 
