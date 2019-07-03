@@ -11,7 +11,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ControlsComponent} from './controls/controls.component';
 import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 
-const config: SocketIoConfig = { url: 'http://localhost:8882', options: {} };
+// const socketURL = 'http://localhost:8882';
+const socketURL = 'http://10.0.35:8882';
+
+const config: SocketIoConfig = {url: socketURL, options: {}};
 
 
 @NgModule({
