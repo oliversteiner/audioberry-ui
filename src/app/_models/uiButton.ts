@@ -1,7 +1,7 @@
 export interface UiButton {
-  onOff: boolean;
+  onOff?: boolean;
   name?: string;
-  id?: string;
+  id: string;
 }
 
 export class UiButton {
