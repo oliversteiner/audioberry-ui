@@ -9,7 +9,6 @@ import {faBluetoothB} from '@fortawesome/free-brands-svg-icons/faBluetoothB';
 import {MatSliderModule, MatSlideToggleModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ControlsComponent} from './controls/controls.component';
-import {UiButton} from './_models/uiButton';
 import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 
 const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
@@ -26,7 +25,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     MatSliderModule,
     SocketIoModule.forRoot(config)
   ],
-  providers: [UiButton],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {
