@@ -51,6 +51,7 @@
   align-items: center;
 
 }
+
 .volume-knob-placeholder:hover,
 .button-placeholder:hover {
   background-image: radial-gradient(circle, #515151, silver);
@@ -61,7 +62,7 @@
 
 .button-placeholder:active {
   background-image: radial-gradient(circle, #515151, silver);
-  border: 5px solid #0093dc;
+  border: 5px solid rgba(0, 0, 0, 0.99);
 }
 
 .button-placeholder.active {
@@ -87,4 +88,13 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+
+.radio-display {
+  font-family: Roboto-Bold, sans-serif;
+  font-size: 12px;
+  color: #FFF;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }

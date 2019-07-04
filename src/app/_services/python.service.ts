@@ -1,22 +1,37 @@
-import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Socket} from 'ngx-socket-io';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PythonService {
-  constructor(private socket: Socket) {}
+  constructor(private socket: Socket) {
+  }
 
   sendMessage(msg: string) {
     this.socket.emit('message', msg);
   }
 
-  play(station: string) {
-    this.socket.emit('play-station', station);
+  buttonAction(station: string) {
+    this.socket.emit('button_action', station);
   }
 
-  getMessage() {
-    return this.socket.fromEvent('message').pipe(map(data => data));
+
+  public getMessagesButton = () => {
+    return Observable.create((observer) => {
+      this.socket.on('audioberry_button', (message) => {
+        observer.next(message);
+      });
+    });
   }
+
+  public getMessagesDisplay = () => {
+    return Observable.create((observer) => {
+      this.socket.on('audioberry_display', (message) => {
+        observer.next(message);
+      });
+    });
+  }
+
 }

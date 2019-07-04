@@ -8,57 +8,76 @@ import {UiButton} from '../_models/uiButton';
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit {
+
+  public display: string;
+
   // Buttons
+  public buttons: UiButton[];
+
   public buttonI: UiButton;
   public buttonII: UiButton;
   public buttonIII: UiButton;
   public buttonBL: UiButton;
- // public buttonOn: UiButton;
+
+  // public buttonOn: UiButton;
 
   constructor(private pythonService: PythonService) {
   }
 
   ngOnInit() {
-    this.buttonI = new UiButton('Button I');
-    this.buttonII = new UiButton('Button II');
-    this.buttonIII = new UiButton('Button III');
-    this.buttonBL = new UiButton('Button BL');
-  //  this.buttonOn = new UiButton('Button On');
+    this.display = '';
 
-    console.log(this.buttonI);
+    this.buttonI = new UiButton('Button I', 'button-1');
+    this.buttonII = new UiButton('Button II', 'button-2');
+    this.buttonIII = new UiButton('Button III', 'button-3');
+    this.buttonBL = new UiButton('Button BL', 'button-4');
+
+    this.buttons = [
+      this.buttonI,
+      this.buttonII,
+      this.buttonIII,
+      this.buttonBL,
+    ];
+
+    this.pythonService
+      .getMessagesButton()
+      .subscribe((message: string) => {
+        const buttonid = 'button-' + message;
+        this.setButtonactive(buttonid);
+      });
+
+    this.pythonService
+      .getMessagesDisplay()
+      .subscribe((message: string) => {
+        this.setDisplay(message);
+      });
+
   }
 
   toggleButton(uiButton) {
-    // reset all Buttons
-    this.buttonI.onOff = false;
-    this.buttonII.onOff = false;
-    this.buttonIII.onOff = false;
-    this.buttonBL.onOff = false;
+    this.buttons.map(button => {
+      if (uiButton.id === button.id) {
+        button.active = button.active !== true;
+      } else {
+        button.active = false;
+      }
+    });
 
-    this.buttonI.id = 'button-1';
-    this.buttonII.id = 'button-2';
-    this.buttonIII.id = 'button-3';
-    this.buttonBL.id = 'button-bl';
+    this.pythonService.buttonAction(uiButton);
+  }
 
-    uiButton.onOff = uiButton.onOff !== true;
-    const msg = 'Push: ' + uiButton.name;
-    this.pythonService.sendMessage(msg);
+  setButtonactive(id) {
+    this.buttons.filter(
+      (button) => {
+        button.light = button.id === id;
+      }
+    );
+  }
 
-    switch (uiButton.id) {
-      case 'button-1':
-        this.pythonService.play('1');
-        break;
-      case 'button-2':
-        this.pythonService.play('2');
-        break;
-      case 'button-3':
-        this.pythonService.play('3');
-        break;
-      default:
-        this.pythonService.play('bl');
-        break;
 
-    }
-    console.log(msg);
+  setDisplay(message) {
+    console.log('Display: ', message);
+    this.display = message;
+
   }
 }

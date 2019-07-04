@@ -1,13 +1,15 @@
 export interface UiButton {
-  onOff?: boolean;
+  active?: boolean;
   name?: string;
   id: string;
+  light: boolean;
 }
 
 export class UiButton {
-  constructor(name: string = 'Button') {
-    this.onOff = false;
+  constructor(name: string = 'Button', id: string = 'button-0') {
+    this.active = false;
     this.name = name;
-    this.id = 'button-0';
+    this.id = id;
+    this.light = false;
   }
 }

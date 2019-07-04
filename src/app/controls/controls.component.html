@@ -5,7 +5,7 @@
     <div class="radio-front-label">
 
       <!-- SVG AudioBerry-->
-
+<div class="radio-display"> {{display}}</div>
       <svg width="170px" height="81px" viewBox="0 0 170 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Audio-Berry-Logo" transform="translate(-5.000000, -5.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -25,15 +25,15 @@
 
   <div class="button-list">
     <!-- button I -->
-    <div class="button-placeholder" role="button" [class.active]="buttonI.onOff" (click)="toggleButton(buttonI)">
+    <div class="button-placeholder" role="button" [class.active]="buttonI.light" (click)="toggleButton(buttonI)">
       <span class="button-label">I</span>
     </div>
 
     <!-- button II -->
-    <div class="button-placeholder" role="button"  [class.active]="buttonII.onOff" (click)="toggleButton(buttonII)"><span class="button-label">II</span></div>
+    <div class="button-placeholder" role="button"  [class.active]="buttonII.light" (click)="toggleButton(buttonII)"><span class="button-label">II</span></div>
 
     <!-- button III -->
-    <div class="button-placeholder" role="button"  [class.active]="buttonIII.onOff" (click)="toggleButton(buttonIII)"><span class="button-label">III</span></div>
+    <div class="button-placeholder" role="button"  [class.active]="buttonIII.light" (click)="toggleButton(buttonIII)"><span class="button-label">III</span></div>
 
     <div class="status-group">
 
@@ -46,7 +46,7 @@
 
 
     <!-- button Bluetooth -->
-    <div class="button-placeholder" role="button"  [class.active]="buttonBL.onOff" (click)="toggleButton(buttonBL)">
+    <div class="button-placeholder" role="button"  [class.active]="buttonBL.light" (click)="toggleButton(buttonBL)">
       <span class="button-label"><fa-icon [icon]="['fab', 'bluetooth-b']"></fa-icon></span>
     </div>
   </div>
