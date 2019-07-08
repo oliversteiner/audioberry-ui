@@ -1,0 +1,11 @@
+.bar {
+  background-color: #0093dc;
+  height: 100%;
+}
+
+:host {
+  display: block;
+  height: 3px;
+  width: 90px;
+  margin-top: 5px;
+}

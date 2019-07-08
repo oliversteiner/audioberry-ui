@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PythonService} from '../../_services/python.service';
 import {UiButton} from '../../_models/uiButton';
-import {DisplayContent} from '../../_models/display-content';
-
 
 @Component({
   selector: 'app-controls',
@@ -27,7 +25,7 @@ export class ControlsComponent implements OnInit {
     readOnly: false,
     size: 140,
     unit: '%',
-    textColor: '#7e7e7e',
+    textColor: '#4b4b4b',
     fontSize: '20',
     fontWeigth: '700',
     fontFamily: 'Roboto',
@@ -37,7 +35,7 @@ export class ControlsComponent implements OnInit {
     trackWidth: 19,
     barWidth: 20,
     trackColor: '#858585',
-    barColor: '#4b86ff',
+    barColor: '#636363',
     subText: {
       enabled: true,
       fontFamily: 'Verdana',
@@ -96,6 +94,5 @@ export class ControlsComponent implements OnInit {
       }
     );
   }
-
 
 }

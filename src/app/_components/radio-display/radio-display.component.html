@@ -1,4 +1,13 @@
 <div class="radio-display">
-  <div class="radio-display-row-1">{{displayContent.row1}}</div>
+
+  <div class="radio-display-row-1">
+    <div class="radio-display-bluetooth" *ngIf="bluetooth">
+      <fa-icon [icon]="['fab', 'bluetooth-b']"></fa-icon>
+    </div>
+    {{displayContent.row1}}
+  </div>
+<!--
   <div class="radio-display-row-2">{{displayContent.row2}}</div>
+-->
+  <app-volume-bar [volumeValue]="volumeValue"></app-volume-bar>
 </div>

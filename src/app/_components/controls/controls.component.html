@@ -1,6 +1,5 @@
 <!-- Top -->
 <div class="radio-front-top">
-
   <div class="row">
     <!-- label -->
     <div class="radio-front-label">
@@ -15,7 +14,7 @@
       </svg>
     </div>
     <!-- Volume Knob -->
-    <ngx-knob [value]="volumeValue" [options]="knOptions"></ngx-knob>
+    <ngx-knob [(value)]="volumeValue" [options]="knOptions" ></ngx-knob>
     </div>
   </div>
 
@@ -29,7 +28,7 @@
     <div class="switch-on-off" ><mat-slide-toggle></mat-slide-toggle></div>
 
     <!-- Radio Display -->
-    <app-radio-display></app-radio-display>
+    <app-radio-display [volumeValue]="volumeValue"></app-radio-display>
   </div>
 
   <!-- Station Buttons -->

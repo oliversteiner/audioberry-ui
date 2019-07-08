@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DisplayContent} from '../../_models/display-content';
 import {PythonService} from '../../_services/python.service';
+import {faBluetoothB} from '@fortawesome/free-brands-svg-icons/faBluetoothB';
 
 @Component({
   selector: 'app-radio-display',
@@ -9,14 +10,21 @@ import {PythonService} from '../../_services/python.service';
 })
 export class RadioDisplayComponent implements OnInit {
 
-  public displayContent: DisplayContent; // 2 Rows
+  @Input() volumeValue;
+
+  public displayContent: DisplayContent;
+  bluetooth: boolean;
 
   constructor(private pythonService: PythonService) {
   }
 
   ngOnInit() {
-    this.displayContent = new DisplayContent('', 'Bluetooth');
+    this.displayContent = new DisplayContent('', '');
 
+    // show Bluetooth symbol
+    this.bluetooth = true;
+
+    // get Messages from Raspberry Pi
     this.pythonService
       .getMessagesDisplay()
       .subscribe((rowMessage: string) => {
@@ -24,11 +32,21 @@ export class RadioDisplayComponent implements OnInit {
       });
   }
 
+
   setDisplayContent(rowMessage: string) {
     const message = rowMessage.split(':', 2);
     console.log('Display: ', message);
-    this.displayContent.row1 = message[0];
-    this.displayContent.row2 = message[1];
+
+    if (message[0] === 'b') {
+      this.bluetooth = true;
+      this.displayContent.row1 = '';
+      this.displayContent.row2 = ''; // currently not used
+    } else {
+      this.bluetooth = false;
+      this.displayContent.row1 = message[0];
+      this.displayContent.row2 = message[1]; // currently not used
+    }
+
 
   }
 }
