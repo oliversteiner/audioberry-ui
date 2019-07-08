@@ -12,13 +12,15 @@ import { ControlsComponent } from './controls/controls.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from '../environments/environment';
 import {PythonService} from './_services/python.service';
+import { RadioDisplayComponent } from './radio-display/radio-display.component';
+import {KnobModule} from '@xmlking/ngx-knob';
 
 const socketURL = 'http://' + environment.url + ':8882';
 
 const config: SocketIoConfig = { url: socketURL, options: {} };
 
 @NgModule({
-  declarations: [AppComponent, ControlsComponent],
+  declarations: [AppComponent, ControlsComponent, RadioDisplayComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +29,7 @@ const config: SocketIoConfig = { url: socketURL, options: {} };
     BrowserAnimationsModule,
     MatSliderModule,
     SocketIoModule.forRoot(config),
+    KnobModule,
   ],
   providers: [PythonService],
   bootstrap: [AppComponent],

@@ -1,11 +1,11 @@
 <!-- Top -->
 <div class="radio-front-top">
+
   <div class="row">
     <!-- label -->
     <div class="radio-front-label">
 
       <!-- SVG AudioBerry-->
-<div class="radio-display"> {{display}}</div>
       <svg width="170px" height="81px" viewBox="0 0 170 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Audio-Berry-Logo" transform="translate(-5.000000, -5.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -15,39 +15,48 @@
       </svg>
     </div>
     <!-- Volume Knob -->
-    <div class="volume-knob-placeholder"><mat-slider vertical></mat-slider>
+    <ngx-knob [value]="volumeValue" [options]="knOptions"></ngx-knob>
     </div>
   </div>
-</div>
 
 <!-- bottom -->
 <div class="radio-front-bottom">
 
+  <!-- Display Field -->
+  <div class="display-group">
+
+    <!-- Switch On/Off -->
+    <div class="switch-on-off" ><mat-slide-toggle></mat-slide-toggle></div>
+
+    <!-- Radio Display -->
+    <app-radio-display></app-radio-display>
+  </div>
+
+  <!-- Station Buttons -->
   <div class="button-list">
+
     <!-- button I -->
-    <div class="button-placeholder" role="button" [class.active]="buttonI.light" (click)="toggleButton(buttonI)">
+    <div class="button-placeholder" role="button"
+         [class.active]="buttonI.light" (click)="toggleButton(buttonI)">
       <span class="button-label">I</span>
     </div>
 
     <!-- button II -->
-    <div class="button-placeholder" role="button"  [class.active]="buttonII.light" (click)="toggleButton(buttonII)"><span class="button-label">II</span></div>
+    <div class="button-placeholder" role="button"
+         [class.active]="buttonII.light" (click)="toggleButton(buttonII)">
+      <span class="button-label">II</span>
+    </div>
 
     <!-- button III -->
-    <div class="button-placeholder" role="button"  [class.active]="buttonIII.light" (click)="toggleButton(buttonIII)"><span class="button-label">III</span></div>
-
-    <div class="status-group">
-
-      <!-- Switch On / Off -->
-      <div class="status-led" role="button"></div>
-
-      <!-- Switch On / Off -->
-      <div class="switch-on-off" ><mat-slide-toggle></mat-slide-toggle></div>
-    </div>
-
-
-    <!-- button Bluetooth -->
-    <div class="button-placeholder" role="button"  [class.active]="buttonBL.light" (click)="toggleButton(buttonBL)">
-      <span class="button-label"><fa-icon [icon]="['fab', 'bluetooth-b']"></fa-icon></span>
+    <div class="button-placeholder" role="button"
+         [class.active]="buttonIII.light" (click)="toggleButton(buttonIII)">
+      <span class="button-label">III</span>
     </div>
   </div>
+
+
+
+
+
+
 </div>

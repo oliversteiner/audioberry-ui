@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PythonService} from '../_services/python.service';
 import {UiButton} from '../_models/uiButton';
+import {DisplayContent} from '../_models/display-content';
+
 
 @Component({
   selector: 'app-controls',
@@ -9,35 +11,61 @@ import {UiButton} from '../_models/uiButton';
 })
 export class ControlsComponent implements OnInit {
 
-  public display: string;
 
   // Buttons
   public buttons: UiButton[];
-
   public buttonI: UiButton;
   public buttonII: UiButton;
   public buttonIII: UiButton;
-  public buttonBL: UiButton;
 
-  // public buttonOn: UiButton;
+  // Display
+
+// Volume Knob
+  public volumeValue: number;
+
+  public knOptions = {
+    readOnly: false,
+    size: 140,
+    unit: '%',
+    textColor: '#7e7e7e',
+    fontSize: '20',
+    fontWeigth: '700',
+    fontFamily: 'Roboto',
+    valueformat: 'percent',
+    value: 50,
+    max: 100,
+    trackWidth: 19,
+    barWidth: 20,
+    trackColor: '#858585',
+    barColor: '#4b86ff',
+    subText: {
+      enabled: true,
+      fontFamily: 'Verdana',
+      font: '14',
+      fontWeight: 'bold',
+      text: '',
+      color: '#ffffff',
+      offset: 7
+    },
+  };
 
   constructor(private pythonService: PythonService) {
   }
 
   ngOnInit() {
-    this.display = '';
+
 
     this.buttonI = new UiButton('Button I', 'button-1');
     this.buttonII = new UiButton('Button II', 'button-2');
     this.buttonIII = new UiButton('Button III', 'button-3');
-    this.buttonBL = new UiButton('Button BL', 'button-4');
 
     this.buttons = [
       this.buttonI,
       this.buttonII,
       this.buttonIII,
-      this.buttonBL,
     ];
+
+    this.volumeValue = 50;
 
     this.pythonService
       .getMessagesButton()
@@ -46,11 +74,6 @@ export class ControlsComponent implements OnInit {
         this.setButtonactive(buttonid);
       });
 
-    this.pythonService
-      .getMessagesDisplay()
-      .subscribe((message: string) => {
-        this.setDisplay(message);
-      });
 
   }
 
@@ -75,9 +98,4 @@ export class ControlsComponent implements OnInit {
   }
 
 
-  setDisplay(message) {
-    console.log('Display: ', message);
-    this.display = message;
-
-  }
 }

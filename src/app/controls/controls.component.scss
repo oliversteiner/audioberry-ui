@@ -7,11 +7,11 @@
 
 .volume-knob-placeholder {
   background-image: radial-gradient(circle, #c6c6c6, silver, #a8a8a8, #ebebeb);
-  width: 120px;
-  height: 120px;
-  border-radius: 120px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
   border: 5px solid #2a2a2a;
-  margin-right: 90px;
+  margin-right: 40px;
   text-align: center;
   padding: 10px;
 }
@@ -75,14 +75,6 @@
   font-size: 40px;
 }
 
-.status-led {
-  width: 10px;
-  height: 10px;
-  background: black;
-  border-radius: 5px;
-  margin: 10px;
-}
-
 
 .row {
   display: flex;
@@ -90,11 +82,14 @@
   width: 100%;
 }
 
-
-.radio-display {
-  font-family: Roboto-Bold, sans-serif;
-  font-size: 12px;
-  color: #FFF;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+.display-group{
+  height: 90px;
+  border-radius: 15px;
+  border: 5px solid gray;
+  background-image: radial-gradient(circle, gray, silver);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding-left: 10px;
 }
