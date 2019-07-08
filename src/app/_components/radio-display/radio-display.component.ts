@@ -38,15 +38,28 @@ export class RadioDisplayComponent implements OnInit {
     console.log('Display: ', message);
 
     if (message[0] === 'b') {
+      // show Bluetooth-B
       this.bluetooth = true;
       this.displayContent.row1 = '';
-      this.displayContent.row2 = ''; // currently not used
+    } else if (message[0] === 'Stop') {
+      this.displayContent.row1 = message[0];
+
+      // show for 3 Seconds "Stop", then change Text to Bluetooth-B
+      this.delay(2000).then(() => {
+        this.bluetooth = true;
+        this.displayContent.row1 = '';
+      });
+
     } else {
+      // Show Message (Station-Name)
       this.bluetooth = false;
       this.displayContent.row1 = message[0];
-      this.displayContent.row2 = message[1]; // currently not used
     }
 
 
+  }
+
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log('fired'));
   }
 }
