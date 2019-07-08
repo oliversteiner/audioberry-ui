@@ -8,19 +8,20 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBluetoothB } from '@fortawesome/free-brands-svg-icons/faBluetoothB';
 import { MatSliderModule, MatSlideToggleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ControlsComponent } from './controls/controls.component';
+import { ControlsComponent } from './_components/controls/controls.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from '../environments/environment';
 import {PythonService} from './_services/python.service';
-import { RadioDisplayComponent } from './radio-display/radio-display.component';
+import { RadioDisplayComponent } from './_components/radio-display/radio-display.component';
 import {KnobModule} from '@xmlking/ngx-knob';
+import { VolumeBarComponent } from './_components/volume-bar/volume-bar.component';
 
 const socketURL = 'http://' + environment.url + ':8882';
 
 const config: SocketIoConfig = { url: socketURL, options: {} };
 
 @NgModule({
-  declarations: [AppComponent, ControlsComponent, RadioDisplayComponent],
+  declarations: [AppComponent, ControlsComponent, RadioDisplayComponent, VolumeBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

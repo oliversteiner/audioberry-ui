@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {PythonService} from '../_services/python.service';
-import {UiButton} from '../_models/uiButton';
-import {DisplayContent} from '../_models/display-content';
+import {PythonService} from '../../_services/python.service';
+import {UiButton} from '../../_models/uiButton';
+import {DisplayContent} from '../../_models/display-content';
 
 
 @Component({

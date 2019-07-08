@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DisplayContent} from '../_models/display-content';
-import {PythonService} from '../_services/python.service';
+import {DisplayContent} from '../../_models/display-content';
+import {PythonService} from '../../_services/python.service';
 
 @Component({
   selector: 'app-radio-display',
