@@ -4,8 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {faBluetoothB} from '@fortawesome/free-brands-svg-icons/faBluetoothB';
 import {MatSliderModule, MatSlideToggleModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ControlsComponent} from './_components/controls/controls.component';
@@ -15,6 +13,11 @@ import {PythonService} from './_services/python.service';
 import {RadioDisplayComponent} from './_components/radio-display/radio-display.component';
 import {KnobModule} from '@xmlking/ngx-knob';
 import {VolumeBarComponent} from './_components/volume-bar/volume-bar.component';
+
+// Fontawesome
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faBluetoothB} from '@fortawesome/free-brands-svg-icons/faBluetoothB';
+import {faRaspberryPi} from '@fortawesome/free-brands-svg-icons/faRaspberryPi';
 
 const socketURL = 'http://' + environment.url + ':8882';
 
@@ -39,5 +42,6 @@ export class AppModule {
   constructor() {
     // Add an icon to the library for convenient access in other components
     library.add(faBluetoothB);
+    library.add(faRaspberryPi);
   }
 }
