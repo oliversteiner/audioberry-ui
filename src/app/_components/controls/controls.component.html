@@ -14,7 +14,7 @@
       </svg>
     </div>
     <!-- Volume Knob -->
-    <ngx-knob [(value)]="volumeValue" [options]="knOptions" ></ngx-knob>
+    <ngx-knob [(value)]="volumeValue" [options]="knOptions" (valueChange)="setVolume()" ></ngx-knob>
     </div>
   </div>
 

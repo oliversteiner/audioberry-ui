@@ -34,4 +34,7 @@ export class PythonService {
     });
   }
 
+  setVolume(volumeValue: number) {
+    this.socket.emit('volume_action', volumeValue);
+  }
 }

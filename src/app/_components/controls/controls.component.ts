@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PythonService} from '../../_services/python.service';
 import {UiButton} from '../../_models/uiButton';
+import {debounce} from 'rxjs/operators';
 
 @Component({
   selector: 'app-controls',
@@ -23,6 +24,7 @@ export class ControlsComponent implements OnInit {
 
   public knOptions = {
     readOnly: false,
+    animate: false,
     size: 140,
     unit: '%',
     textColor: '#4b4b4b',
@@ -73,6 +75,8 @@ export class ControlsComponent implements OnInit {
       });
 
 
+
+
   }
 
   toggleButton(uiButton) {
@@ -95,4 +99,7 @@ export class ControlsComponent implements OnInit {
     );
   }
 
+  setVolume() {
+    this.pythonService.setVolume(this.volumeValue);
+  }
 }

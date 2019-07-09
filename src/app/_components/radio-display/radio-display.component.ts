@@ -33,6 +33,7 @@ export class RadioDisplayComponent implements OnInit {
   }
 
 
+
   setDisplayContent(rowMessage: string) {
     const message = rowMessage.split(':', 2);
     console.log('Display: ', message);
